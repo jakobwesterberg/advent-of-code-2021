@@ -10,10 +10,9 @@ slidingWindow n l
     | n > length l = []
     | otherwise     = take n l : slidingWindow n (drop 1 l)
 
--- Part 1
-main1 :: IO Int
-main1 = nbrOfIncs <$> readInput
-
--- Part 2
-main2 :: IO Int 
-main2 = nbrOfIncs . map (foldl (+) 0) . slidingWindow 3 <$> readInput
+main :: IO ()
+main = do
+    awnser1 <- nbrOfIncs <$> readInput
+    awnser2 <- nbrOfIncs . map (foldl (+) 0) . slidingWindow 3 <$> readInput
+    print awnser1
+    print awnser2
