@@ -5,10 +5,10 @@ nbrOfIncs :: [Int] -> Int
 nbrOfIncs [] = 0
 nbrOfIncs xs = length . filter (> 0) . zipWith (-) (tail xs) $ init xs
 
-slidingWindow :: Int -> [Int] -> [[Int]]
-slidingWindow n l
-    | n > length l = []
-    | otherwise     = take n l : slidingWindow n (drop 1 l)
+slidingWindow :: Int -> [a] -> [[a]]
+slidingWindow n xs
+    | n > length xs = []
+    | otherwise     = take n xs : slidingWindow n (drop 1 xs)
 
 main :: IO ()
 main = do
